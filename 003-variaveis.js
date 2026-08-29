@@ -1,12 +1,12 @@
 let entrada = require("prompt-sync")();
 // comentário de 1 linha
-let nome = "Nathália"; // string ex: "qualquer texto"
-let idade = 32; // number ex: 32, 3.14, -10
+let nome = "Lucas"; // string ex: "qualquer texto"
+let idade = 37; // number ex: 32, 3.14, -10
 let trabalha = true; // boolean ex: true, false
 let endereço = {
-  rua: "Brasil",
-  num: 40,
-  bairro: "Centro",
+  rua: "Antônio Mendonça",
+  num: "131",
+  bairro: "Jardim Guanabara",
 }; // object ex: padrão chave/valor
 let funcao = () => console.log("Oi"); // function ex: bloco de códigos
 
