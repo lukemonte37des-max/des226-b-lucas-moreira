@@ -14,8 +14,6 @@ let notaInt = parseInt(nota, 10);
 let recomendaBool = recomenda === "sim" ? true : false;
 let ehNulo = numPaisesExibidos === null ? "null" : "outra coisa";
 
-
-
 console.log("");
 console.log("---------------------------------------");
 console.log("engajamento: " + typeof(engajamento));
