@@ -1,10 +1,10 @@
 let entrada = require("prompt-sync")();
 
-console.log("Digite o nome de jogo a ser avaliado:"),
+console.log("Digite o nome de jogo a ser avaliado:");
 let jogo = entrada();
-console.log("Que nota você dá para esse jogo (0-10):"),
+console.log("Que nota você dá para esse jogo (0-10):");
 let nota = entrada();
-console.log("Você recomendaria esse jogo? (sim/não:)"),
+console.log("Você recomendaria esse jogo? (sim/não:)");
 let recomenda = entrada();
 
 // eu controlo o formato
