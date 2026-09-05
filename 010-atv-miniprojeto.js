@@ -1,3 +1,6 @@
+let entrada = require('prompt-sync')();  
+
+
 //1. Instancia a Data atual
 const dataAtual = new Date();
 
@@ -26,3 +29,4 @@ registrarAcesso(nome, matricula, disciplinas, dataAtual);
 console.log('Tipo da variável dataAtual:', typeof dataAtual);
 console.log('Tipo da variável registrarAcesso:', typeof registrarAcesso);
 
+entrada();
