@@ -1,0 +1,53 @@
+let entrada = require("prompt-sync")();
+
+let usuarios = [
+  { nome: "lukas", senha: "248624", saldo: 500.0 },
+  { nome: "maria", senha: "123456", saldo: 1000.0 },
+  { nome: "joao", senha: "987654", saldo: -750.0 },
+];
+
+let usuario1 = usuarios[0].nome;
+let senha1 = usuarios[0].senha;
+let saldo1 = usuarios[0].saldo;
+
+let usOk = false;
+let snOk = false;
+let saldoUsuario = 0;
+let acessoPermitido = false;
+
+console.log("Insira seus dados para acessar o sistema: ");
+
+let loginUsuario = entrada("Nome de usuário: ");
+let loginSenha = entrada("Senha: ");
+let saldoUsuario = 0;
+
+if (usuario1 == loginUsuario.toLowerCase() && senha1 == loginSenha) {
+  senha1 == loginSenha;
+  console.log("Nome de usuário e senha verificados com sucesso!");
+  usOk = true;
+  snOk = true;
+}
+
+if (usuario2 == loginUsuario.toLowerCase() && senha2 == loginSenha) {
+  senha2 == loginSenha;
+  console.log("Nome de usuário e senha verificados com sucesso!");
+  usOk = true;
+  snOk = true;
+}
+
+if (usuario3 == loginUsuario.toLowerCase() && senha3 == loginSenha) {
+  senha3 == loginSenha;
+  console.log("Nome de usuário e senha verificados com sucesso!");
+  usOk = true;
+  snOk = true;
+}
+
+if (usOk === true && snOk === true) {
+  acessoPermitido = true;
+}
+
+if (acessoPermitido === true) {
+  console.log("Acesso permitido! Bem-vindo ao sistema!");
+} else {
+  console.log("Acesso negado! Usuário ou senha incorretos!");
+}

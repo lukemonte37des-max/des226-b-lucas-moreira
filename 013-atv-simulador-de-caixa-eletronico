@@ -1,0 +1,77 @@
+let entrada = require("prompt-sync")();
+
+const readline = require("readline");
+
+// Interface para leitura de dados no terminal
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+// Configurações simuladas do sistema
+const PIN_CORRETO = 1234;
+let saldoDisponivel = 500; // Saldo inicial na conta
+
+console.log("=== SIMULADOR DE CAIXA ELETRÔNICO ===");
+
+// 1. Fluxo de Autenticação (Estruturas condicionais e variáveis booleanas)
+rl.question("Digite sua senha de 4 dígitos: ", (entradaSenha) => {
+  // Conversão de texto para número inteiro
+  const senhaDigitada = parseInt(entradaSenha, 10);
+
+  // Validação lógica utilizando operadores de comparação (igualdade estrita)
+  const autenticado = senhaDigitada === PIN_CORRETO;
+
+  // Inversão lógica (NOT) para verificar se NÃO está autenticado
+  if (!autenticado) {
+    console.log("Erro: Senha incorreta! Acesso negado.");
+    rl.close();
+    return;
+  }
+
+  console.log(`\nAutenticação realizada com sucesso!`);
+  console.log(`Saldo disponível: R$ ${saldoDisponivel},00`);
+
+  // 2. Fluxo de Saque
+  rl.question(
+    "Digite o valor que deseja sacar (apenas notas de R\$ 50): ",
+    (entradaSaque) => {
+      // Conversão do valor do saque para inteiro
+      const valorSaque = parseInt(entradaSaque, 10);
+
+      // Validações lógicas (maior/menor ou igual)
+      if (isNaN(valorSaque) || valorSaque <= 0) {
+        console.log("Erro: Valor de saque inválido.");
+        rl.close();
+        return;
+      }
+
+      if (valorSaque > saldoDisponivel) {
+        console.log("Erro: Saldo insuficiente para realizar a operação.");
+        rl.close();
+        return;
+      }
+
+      // Operadores aritméticos: cálculo do resto para checar se o valor é múltiplo de 50
+      const resto = valorSaque % 50;
+
+      if (resto !== 0) {
+        console.log(
+          "Erro: Este caixa possui apenas cédulas de R\$ 50. Digite um valor múltiplo.",
+        );
+      } else {
+        // Operadores aritméticos: extração do inteiro de uma divisão (quantidade de notas)
+        const qtdNotas = Math.floor(valorSaque / 50);
+
+        // Atualização do saldo
+        saldoDisponivel -= valorSaque;
+
+        console.log("\n=== SAQUE REALIZADO ===");
+        console.log(`Retire suas cédulas: ${qtdNotas} nota(s) de R$ 50`);
+        console.log(`Saldo restante atualizado: R$ ${saldoDisponivel},00`);
+      }
+
+      rl.close();
+    },
+  );
+});
